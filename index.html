@@ -18,15 +18,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script>
     document.querySelector('button').addEventListener('click', function() {
-      gsap.to('.one', 1.6, {
-        left: '-100%',
-        ease: "expo.out"
-      })
-      gsap.to('.two', 1.6, {
-        left: '0%',
-        ease: "expo.out"
-      })
+      var tl = gsap.timeline();
+      tl.to('.card', 0.5, { top: '30%', opacity: 0 })
+      .set('.card', { top: '70%' })
+      .set('.two', { left: '0%' } )
+      .to('.card', { top: '50%', opacity: 1 })
     })
+
   </script>
 </body>
 </html>
