@@ -9,26 +9,29 @@ html{
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  /* justify-content: end; */
   /* border: 1px solid red; */
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
+  padding-left: 50%;
 }
 .card{
   width: 15%;
-
+  height: auto;
   /* background-color: #000000; */
   margin: 10px;
   /* border-radius: 10px; */
   overflow: hidden;
+  float: right;
 }
 
 .two {
-  transform: translateY(40px);
+  margin-top: 40px;
 }
 
 img{
-  height: 100%;
+  
   width: 100%;
+  height: auto;
 }
 button{
   position: absolute;
