@@ -19,12 +19,12 @@
   <script>
     document.querySelector('button').addEventListener('click', function() {
       var tl = gsap.timeline();
-      tl.to('.card', 0.5, { top: '30%', opacity: 0 })
-      .set('.card', { top: '70%' })
+      tl.to('.card', 0.9, { top: '40%', opacity: 0 })
+      .set('.card', { top: '60%' })
       .set('.two', { left: '0%' } )
-      .to('.card', { top: '50%', opacity: 1 })
+      .to('.card', 0.6, { top: '50%', opacity: 1 })
     })
-
+    //  ease: "expo.out"
   </script>
 </body>
 </html>
