@@ -8,14 +8,14 @@ html{
   width: 100%;
   height: 100%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: end;
   /* border: 1px solid red; */
   flex-direction: row-reverse;
 }
 .card{
-  width: 10%;
-  height: 20%;
+  width: 15%;
+
   /* background-color: #000000; */
   margin: 10px;
   /* border-radius: 10px; */

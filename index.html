@@ -27,8 +27,8 @@
   <script>
     var tl = gsap.timeline({ repeat: -1, repeatDelay: 1, delay: 1});
 
-    tl.to('.card', { y: '-300px', opacity: 0, ease: "expo.out" })
-    tl.set('.card', { y: '300px' })
+    tl.to('.card', { y: '-100%', opacity: 0, ease: "expo.out" })
+    tl.set('.card', { y: '500px' })
     tl.to('.one, .three', {y:'0', opacity: 1, ease: "expo.out" }, 'ok')
     tl.to('.two', {y:'40px', opacity: 1, ease: "expo.out" }, 'ok').timeScale(0.4)
   </script>
