@@ -10,8 +10,8 @@
 <body>
   <div class="wrapper-card">
     <div class="wrapper-element">
-      <h1>Nux connect</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos possimus sit perferendis beatae delectus? Nam
+      <h1 class="text">Nux connect</h1>
+      <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos possimus sit perferendis beatae delectus? Nam
          omnis perspiciatis quidem cupiditate, earum error nesciunt at, hic illo, vero facere dolor minima facilis?
          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quos mollitia quisquam assumenda ipsa
          sed cupiditate veritatis quibusdam cumque quidem. Quisquam quaerat obcaecati repudiandae voluptas ipsum odit
@@ -27,16 +27,31 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script>
-    document.querySelector('body').addEventListener('mousemove', one);
-    document.querySelector('body').addEventListener('mousemove', two);
-    document.querySelector('body').addEventListener('mousemove', three);
+    document.querySelector('body').addEventListener('mousemove', function() {
+      one();
+      two();
+      three();
+      text();
+    });
+    // function text() {
+    //   let element = document.querySelectorAll('.text');
+
+    //   element.forEach(element => {        
+    //     let x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
+    //     let y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
+    //     let radian = Math.atan2(event.pageX - x, event.pageY - y);
+    //     let rot = (radian * (10 / Math.PI) * -1) + 0 ;
+    //     gsap.to(element, 4, { x: `${rot}px`, y: `${rot}px`})
+    //   });
+    // };
+
     function one() {
       let element = document.querySelector('.bg');
       let x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
       let y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
       let radian = Math.atan2(event.pageX - x, event.pageY - y);
       let rot = (radian * (10 / Math.PI) * -1) + 0 ;
-      gsap.to(element, 10, { x: `${rot}px`})
+      gsap.to(element, 5, { x: `${rot}px`})
     };
 
     function two() {
@@ -54,7 +69,7 @@
       let y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
       let radian = Math.atan2(event.pageX - x, event.pageY - y);
       let rot = (radian * (10 / Math.PI) * -1) + 0 ;
-      gsap.to(element, 2, { x:`-${rot}px` })
+      gsap.to(element, 2, { x:`${rot}px` })
     };
   </script>
 </body>
