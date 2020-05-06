@@ -35,8 +35,8 @@
         var x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
         var y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
         var radian = Math.atan2(event.pageX - x, event.pageY - y);
-        var rot = (radian * (200 / Math.PI) * -1) + 0 ;
-        gsap.to(element, 1, {
+        var rot = (radian * (180 / Math.PI) * -1) + 0 ;
+        gsap.to(element, 10, {
           y:`${rot}px`,
           x:`${rot}px`,
           z:`${rot}px`,
