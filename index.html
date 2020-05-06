@@ -8,29 +8,44 @@
 
 </head>
 <body>
-<div class="wrapper-card">
-  <div class="card one"> <img src="./one.png" alt=""> </div>
-  <div class="card two"> <img src="./two.png" alt=""></div>
-  <div class="card three"> <img src="./three.png" alt="" srcset=""> </div>
-</div>
-<div class="wrapper-card">
-  <div class="card one"> <img src="./three.png" alt=""> </div>
-  <div class="card two"> <img src="./one.png" alt=""></div>
-  <div class="card three"> <img src="./two.png" alt="" srcset=""> </div>
-</div>
-<div class="wrapper-card">
-  <div class="card one"> <img src="./two.png" alt=""> </div>
-  <div class="card two"> <img src="./three.png" alt=""></div>
-  <div class="card three"> <img src="./one.png" alt="" srcset=""> </div>
-</div>
+  <div class="wrapper-card">
+    <div class="wrapper-element">
+      <h1>Nux connect</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos possimus sit perferendis beatae delectus? Nam
+         omnis perspiciatis quidem cupiditate, earum error nesciunt at, hic illo, vero facere dolor minima facilis?
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quos mollitia quisquam assumenda ipsa
+         sed cupiditate veritatis quibusdam cumque quidem. Quisquam quaerat obcaecati repudiandae voluptas ipsum odit
+         eum reprehenderit veniam?Eos possimus sit perferendis beatae delectus? Namomnis perspiciatis quidem 
+      </p>
+    </div>
+    <div class="wrapper-element">
+      <img src="./website-bg.png" alt="" class="bg">
+      <img src="./corporate-1.png" alt="decor">
+      <img src="./nux2.png" alt="" class="element">
+
+    </div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script>
-    var tl = gsap.timeline({ repeat: -1, repeatDelay: 3, delay: 1});
-    var card = document.querySelectorAll('.card');
+    document.querySelector('body').addEventListener('mousemove', paralax);
+    function paralax() {
+      var elements = document.querySelectorAll('img');
 
-    tl.staggerTo(card, 0.2, { y: '-100%', opacity: 0, stagger: 0.1 }, 'toto');
-    tl.set('.card',{ y: '500px' });
-    tl.staggerTo(card, 0.2, {y: '0%', opacity: 1, stagger: 0.1}).timeScale(0.5)
+      elements.forEach(function(element) {
+        var x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
+        var y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
+        var radian = Math.atan2(event.pageX - x, event.pageY - y);
+        var rot = (radian * (200 / Math.PI) * -1) + 0 ;
+        gsap.to(element, 10, {
+          y:`${rot}px`,
+          x:`${rot}px`,
+          z:`${rot}px`,
+          ease: "bounce.inOut"
+          })
+      })
+
+      
+    };
   </script>
 </body>
 </html>
