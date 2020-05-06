@@ -19,31 +19,42 @@
       </p>
     </div>
     <div class="wrapper-element">
-      <img src="./website-bg.png" alt="" class="bg">
-      <img src="./corporate-1.png" alt="decor">
-      <img src="./nux2.png" alt="" class="element">
+      <img src="./website-bg.png"  class="bg">
+      <img src="./corporate-1.png" class="decor">
+      <img src="./nux2.png" class="element">
 
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script>
-    document.querySelector('body').addEventListener('mousemove', paralax);
-    function paralax() {
-      var elements = document.querySelectorAll('img');
+    document.querySelector('body').addEventListener('mousemove', one);
+    document.querySelector('body').addEventListener('mousemove', two);
+    document.querySelector('body').addEventListener('mousemove', three);
+    function one() {
+      let element = document.querySelector('.bg');
+      let x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
+      let y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
+      let radian = Math.atan2(event.pageX - x, event.pageY - y);
+      let rot = (radian * (10 / Math.PI) * -1) + 0 ;
+      gsap.to(element, 10, { x: `${rot}px`})
+    };
 
-      elements.forEach(function(element) {
-        var x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
-        var y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
-        var radian = Math.atan2(event.pageX - x, event.pageY - y);
-        var rot = (radian * (180 / Math.PI) * -1) + 0 ;
-        gsap.to(element, 10, {
-          y:`${rot}px`,
-          x:`${rot}px`,
-          z:`${rot}px`,
-          })
-      })
+    function two() {
+      let element = document.querySelector('.decor');
+      let x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
+      let y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
+      let radian = Math.atan2(event.pageX - x, event.pageY - y);
+      let rot = (radian * (10 / Math.PI) * -1) + 0 ;
+      gsap.to(element, 2, { y:`${rot}px` })
+    };
 
-
+    function three() {
+      let element = document.querySelector('.element');
+      let x = (element.getBoundingClientRect().left) + (element.clientWidth / 2);
+      let y = (element.getBoundingClientRect().top) + (element.clientHeight / 2);
+      let radian = Math.atan2(event.pageX - x, event.pageY - y);
+      let rot = (radian * (10 / Math.PI) * -1) + 0 ;
+      gsap.to(element, 2, { x:`-${rot}px` })
     };
   </script>
 </body>
