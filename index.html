@@ -15,6 +15,13 @@
       <img src="./nux2.png" alt="" class="test">
     </div>
   </div>
+  <div class="position-two">
+    <div class="wrapper">
+      <img src="./eshop-bg.png" alt="" class="test">
+      <img src="./eshop-texture.png" alt="" class="test">
+      <img src="./eshop-element.png" alt="" class="test">
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script>
@@ -26,12 +33,12 @@
       // });
     
 
-    var imgNux = document.getElementsByClassName("test");
-  document.onmousemove = function(){
+    var imgNux = document.querySelectorAll('.test');
+    document.onmousemove = function(){
     var x = event.clientX * 100 / window.innerWidth + "%";
     var y = event.clientY * 100 / window.innerHeight + "%";
 
-    for(var i=0;i<3;i++){
+    for(var i=0;i<6;i++){
       imgNux[i].style.left = x;
       imgNux[i].style.top = y;
       imgNux[i].style.transform = "translate(-"+x+",-"+y+")";
