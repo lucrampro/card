@@ -39,9 +39,12 @@
       ];
 
       // je crée mes 3 img
-      const bg = document.createElement('img');
-      const texture = document.createElement('img');
-      const element = document.createElement('img');
+      const bg = new Image();
+      const texture = new Image();
+      const element = new Image();
+      // const bg = document.createElement('img');
+      // const texture = document.createElement('img');
+      // const element = document.createElement('img');
 
       // je stock dans un variable l'element parent
       const scene = document.querySelector('#scene');
@@ -80,7 +83,7 @@
       // j'initialise une timaline pour l'animation
         var tl = gsap.timeline({repeat: -1, repeatDelay: 2})
 
-        tl.staggerTo(elements, 0.6, {opacity: 0}, 0.1)
+        tl.staggerTo(elements, 0.6, {opacity: 0}, 0)
         .staggerTo(elements, 0, { opacity: 1, left:'1000px'})
         .add(function(){
           if ( interface >= 3 ) {
@@ -96,17 +99,6 @@
         .staggerTo(elements, 1, {left: '0px'}, 0.1)
       }
       animation();
-      // setInterval(function(){
-      //   if ( interface >= 3 ) {
-      //     interface = 0;
-      //     console.log('je reeboot interface');
-      //   }
-      //   bg.src = imgs[interface].bg;
-      //   texture.src = imgs[interface].texture;
-      //   element.src = imgs[interface].element;
-
-      //   interface++;
-      // }, 2000);
     }
   </script>
 </body>
