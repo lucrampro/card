@@ -69,17 +69,26 @@
       }
       // j'inisialise le parralax
       var parallaxInstance = new Parallax(scene);
-      setInterval(function(){
-        if ( interface >= 3 ) {
-          interface = 0;
-          console.log('je reeboot interface');
-        }
-        bg.src = imgs[interface].bg;
-        texture.src = imgs[interface].texture;
-        element.src = imgs[interface].element;
 
-        interface++;
-      }, 3000);
+      // je crée une fonction qui condiendra mon animation
+      function animation() {
+      // j'initialise une timaline pour l'animation
+        var tl = gsap.timeline()
+      } 
+
+      // tl.staggerTo(elements, 1, {top: '-100%'}, 0.1)
+
+      // setInterval(function(){
+      //   if ( interface >= 3 ) {
+      //     interface = 0;
+      //     console.log('je reeboot interface');
+      //   }
+      //   bg.src = imgs[interface].bg;
+      //   texture.src = imgs[interface].texture;
+      //   element.src = imgs[interface].element;
+
+      //   interface++;
+      // }, 3000);
     }
   </script>
 </body>
