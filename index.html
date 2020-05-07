@@ -52,6 +52,7 @@
       // je designe les source de mes images et leurs vitesse de paralax
       bg.src = imgs[interface].bg;
       bg.dataset.depth = 0.1;
+      bg.dataset.relativeInput = true;
 
       texture.src = imgs[interface].texture;
       texture.dataset.depth = 0.3;
@@ -72,12 +73,29 @@
 
       // je crée une fonction qui condiendra mon animation
       function animation() {
+        // je change la position du bg car la librairie le met en relative ☹️
+        gsap.set(bg, { position: "absolute" })
+        console.log(bg.style.position);
+
       // j'initialise une timaline pour l'animation
-        var tl = gsap.timeline()
-      } 
+        var tl = gsap.timeline({repeat: -1, repeatDelay: 2})
 
-      // tl.staggerTo(elements, 1, {top: '-100%'}, 0.1)
+        tl.staggerTo(elements, 0.6, {opacity: 0}, 0.1)
+        .staggerTo(elements, 0, { opacity: 1, left:'1000px'})
+        .add(function(){
+          if ( interface >= 3 ) {
+          interface = 0;
+          console.log('je reeboot interface');
+          }
+          bg.src = imgs[interface].bg;
+          texture.src = imgs[interface].texture;
+          element.src = imgs[interface].element;
 
+          interface++;
+        })
+        .staggerTo(elements, 1, {left: '0px'}, 0.1)
+      }
+      animation();
       // setInterval(function(){
       //   if ( interface >= 3 ) {
       //     interface = 0;
@@ -88,7 +106,7 @@
       //   element.src = imgs[interface].element;
 
       //   interface++;
-      // }, 3000);
+      // }, 2000);
     }
   </script>
 </body>
