@@ -10,27 +10,77 @@
 <body>
   <div class="wrapper">
     <div id="scene">
-      <img data-depth="0.1" src="./eshop-bg.png" alt="">
-      <img data-depth="0.2" src="./eshop-texture.png" alt="">
-      <img data-depth="0.4" src="./eshop-element.png" alt="">
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
   <script>
-    var scene = document.getElementById('scene');
-    var parallaxInstance = new Parallax(scene);
-    // var imgNux = document.querySelectorAll('.test');
-    // document.onmousemove = function(){
-    //   var x = event.clientX * 100 / window.innerWidth + "%";
-    //   var y = event.clientY * 100 / window.innerHeight + "%";
+    // j'initialise le paralax
+    // j'appel la fonction addElement
+    addElement()
+    function addElement () {
+      // Je stock les informations des imgs dans un tableau
+      const imgs = [
+        {
+          bg:'./corporate-bg.png',
+          texture:'./corporate-texture.png',
+          element:'./corporate-element.png'
+        },
+        {
+          bg:'./eshop-bg.png',
+          texture:'./eshop-texture.png',
+          element:'./eshop-element.png'
+        },
+        {
+          bg:'./market-bg.png',
+          texture:'./market-texture.png',
+          element:'./market-element.png'
+        }
+      ];
 
-    //   for(var i=0;i<6;i++){
-    //     imgNux[i].style.left = x;
-    //     imgNux[i].style.top = y;
-    //     imgNux[i].style.transform = "translate(-"+x+",-"+y+")";
-    //   }
-    // }
+      // je crée mes 3 img
+      const bg = document.createElement('img');
+      const texture = document.createElement('img');
+      const element = document.createElement('img');
+
+      // je stock dans un variable l'element parent
+      const scene = document.querySelector('#scene');
+      
+      // je cree une variable i qui va determiner les sources
+      var interface = 0;
+
+      // je designe les source de mes images et leurs vitesse de paralax
+      bg.src = imgs[interface].bg;
+      bg.dataset.depth = 0.1;
+
+      texture.src = imgs[interface].texture;
+      texture.dataset.depth = 0.3;
+
+      element.src = imgs[interface].element;
+      element.dataset.depth = 0.5;
+
+      // je cree un tableau ou je stock mes imgs
+      const elements = [bg,texture,element]
+
+      // je places mes imgs dans la div scene
+      for ( i = 0; i< 3; i++) {
+        scene.appendChild(elements[i])
+        console.log(elements[i]);
+      }
+      // j'inisialise le parralax
+      var parallaxInstance = new Parallax(scene);
+      setInterval(function(){
+        if ( interface >= 3 ) {
+          interface = 0;
+          console.log('je reeboot interface');
+        }
+        bg.src = imgs[interface].bg;
+        texture.src = imgs[interface].texture;
+        element.src = imgs[interface].element;
+
+        interface++;
+      }, 3000);
+    }
   </script>
 </body>
 </html>
